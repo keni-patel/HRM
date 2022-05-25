@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Himalaya Infotech</title>
+    <link rel="stylesheet" href="/login.css" />
+    <script
+      src="https://kit.fontawesome.com/a7740e14d6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <img src="/logo.png" class="logo" alt="" />
+    <div class="container">
+      <div class="image-container">
+        <img src="/login.svg" class="table-img" alt="" />
+      </div>
+      <div class="content-container">
+        <div class="login-wrapper">
+          <div class="login-container">
+            <h1>Welcome Back :)</h1>
+            <p class="login-container--p">Stay Connected. Please Login.</p>
+            <% if (username != "") { %> <% if (username == "User Registered!") {
+            %>
+            <p class="login__flash-message success"><%= username %></p>
+            <% }else{ %>
+            <p class="login__flash-message danger"><%= username %></p>
+            <% } } %>
+            <form action="/login" method="post" class="form-container">
+              <div class="input-container">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div class="input-container">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" />
+              </div>
+              <a href="/ForgotPassword" class="forgot-link">Forgot password?</a>
+              <button type="submit" class="btn">Login</button>
+            </form>
+            <p
+              style="
+                font-family: 'Poppins', sans-serif;
+                font-weight: 300;
+                font-size: 1.2rem;
+              "
+            >
+              ----- OR ------
+            </p>
+            <button class="toggle-btn" id="createBtn">
+              <a href="#" class="signup-toggle-btn">CREATE ACCOUNT</a>
+            </button>
+          </div>
+        </div>
+        <div class="signup-container">
+          <div class="register-wrapper">
+            <div class="login-container">
+              <h1>Create Account</h1>
+              <p class="login-container--p">
+                Start New Journey. Please Register.
+              </p>
+              <form action="/signup" method="post" class="form-container">
+                <div class="input-container">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" name="username" placeholder="Username" />
+                </div>
+                <div class="input-container">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input type="email" name="email" placeholder="Email" />
+                </div>
+                <div class="input-container">
+                  <i class="fa-solid fa-lock"></i>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="input-container">
+                  <i class="fa-solid fa-lock"></i>
+                  <input
+                    type="password"
+                    name="confirmpass"
+                    placeholder="Re-enter Password"
+                  />
+                </div>
+                <button type="submit" class="btn">Register</button>
+              </form>
+              <p style="font-family: 'Poppins'; font-size: 16px">
+                Already have an account?
+              </p>
+              <button class="toggle-btn" id="loginBtn">
+                <a href="#" class="signup-toggle-btn">LOGIN</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let login = document.querySelector(".login-wrapper");
+      let register = document.querySelector(".register-wrapper");
+      document.getElementById("createBtn").addEventListener("click", () => {
+        login.style.display = "none";
+        register.style.display = "block";
+      });
+      document.getElementById("loginBtn").addEventListener("click", () => {
+        login.style.display = "block";
+        register.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

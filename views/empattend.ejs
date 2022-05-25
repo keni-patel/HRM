@@ -1,0 +1,187 @@
+<%- include('partials/layout'); %>
+<main class="container">
+  <div class="attend-option-container">
+    <div class="p-l-20">
+      <ul class="attend-option-nav">
+        <li class="nav-item tab-all" id="attendance">
+          <a href="#" class="nav-link active">Attendance</a>
+        </li>
+        <li class="nav-item tab-all p-l-20" id="report">
+          <a href="#" class="nav-link">Report</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="profile-container" id="#attendance">
+    <div class="attend-profile-wrapper p-l-20">
+      <div class="profile-details">
+        <p class="profile-details-bold">Employee Name</p>
+        <p class="profile-details-light"><%= users[0].firstname %></p>
+      </div>
+      <div class="profile-details">
+        <p class="profile-details-bold">Employee ID</p>
+        <p class="profile-details-light"><%= users[0].attend_emp_id %></p>
+      </div>
+    </div>
+  </div>
+<div class="emp-tableContainer">
+    <!-- <div class="attendance-time">
+      <div>
+        <h3 class="attendance-details-bold">8:00</h3>
+        <p class="attendance-details-light">Average Working Hours</p>
+      </div>
+      <div>
+        <h3 class="attendance-details-bold">10:30 AM</h3>
+        <p class="attendance-details-light">Average IN Time</p>
+      </div>
+      <div>
+        <h3 class="attendance-details-bold">7:30 PM</h3>
+        <p class="attendance-details-light">Average OUT Time</p>
+      </div>
+      <div>
+        <h3 class="attendance-details-bold">1:00</h3>
+        <p class="attendance-details-light">Average Break Time</p>
+      </div>
+    </div> -->
+    <table class="main_table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Check IN</th>
+          <th>Check OUT</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user){ %>
+        <tr>
+          <td><%= user.date2 %></td>
+          <td><%= user.time_in %></td>
+          <td><%= user.time_out %></td>
+          <td><%= user.status %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>  
+  <div class="report-container hide">
+    <div class="attend-report">
+      <div class="header-section">
+        <div class="logo-section">
+          <img src="/logo.png" alt="" />
+        </div>
+        <div class="address-section">
+          <div class="report__header-section-address">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>
+              406-407, Shayona Arcade, Opp. Dinesh Chamber, Bapungar, Ahmedabad
+              - 380025
+            </p>
+          </div>
+          <div class="report__header-section-address">
+            <i class="fa-solid fa-phone"></i>
+            <p>+91 70859 54524</p>
+          </div>
+          <div class="report__header-section-address">
+            <i class="fa-solid fa-envelope"></i>
+            <p>info@himalayainfotech.com</p>
+          </div>
+          <div class="report__header-section-address">
+            <i class="fa-solid fa-globe"></i>
+            <p>www.himalayainfotech.com</p>
+          </div>
+        </div>
+      </div>
+      <p style="text-align: right" id="printDate"></p>
+      <div class="report__personalDetails">
+        <h2><%= users[0].firstname + " " +users[0].lastname %></h2>
+        <p>Contact No. : <%= users[0].mobile %></p>
+        <p><%= users[0].address %></p>
+      </div>
+      <h2 style="text-align: center; text-decoration: underline">
+        Attendance Report
+      </h2>
+      <div class="report__body">
+        <p>Dear <%= users[0].firstname %>,</p>
+        <div class="report__body-section">
+          <p>Your this month attendance report is as per mentioned below.</p>
+          <p>Total Days in a Month : <span id="month"></span></p>
+          <p>Weekdays:<span id="weekdays"></span></p>
+          <p>Present Days: <span><%= present[0].present %> </span></p>
+          <p>Absent Days: <span><%= absent[0].absent %> </span></p>
+        </div>
+        <div class="regards">
+          <p>Regards,</p>
+          <p>Himalaya Infotech.</p>
+        </div>
+      </div>
+    </div>
+    <button onclick="window.print()" class="printBtn">Print</button>
+  </div>
+</main>
+<script>
+  const attendance = document.getElementById("attendance");
+  const report = document.getElementById("report");
+  const empab = document.querySelector(".emp-tableContainer");
+  const reportContainer = document.querySelector(".report-container");
+  attendance.addEventListener("click", () => {
+    attendance.firstElementChild.classList.add("active");
+    report.firstElementChild.classList.remove("active");
+    empab.classList.remove("hide");
+    reportContainer.classList.add("hide");
+  });
+  report.addEventListener("click", () => {
+    report.firstElementChild.classList.add("active");
+    attendance.firstElementChild.classList.remove("active");
+    empab.classList.add("hide");
+    reportContainer.classList.remove("hide");
+  });
+
+  const date = new Date();
+  const dateEle = document.getElementById("printDate");
+  dateEle.innerHTML = `DATE: ${date.toLocaleDateString()}`;
+  function printReport() {
+    const divContents = document.querySelector(".attend-report").innerHTML;
+    console.log(divContents);
+    var a = window.open();
+    a.document.write(divContents);
+    a.document.close();
+    setTimeout(() => {
+      a.print();
+    }, 100);
+  }
+
+  let month = date.getMonth();
+  let year = date.getFullYear();
+
+  function getDaysInMonth(iMonth, iYear) {
+    return 32 - new Date(iYear, iMonth, 32).getDate();
+  }
+
+  function isWorkDay(year, month, day) {
+    var dayOfWeek = new Date(year, month, day).getDay();
+    return dayOfWeek != 0 && dayOfWeek != 6; // Sun = 0, Mon = 1, and so forth
+  }
+
+  function getWorkDays(month, year) {
+    var days = getDaysInMonth(month, year);
+    var workdays = 0;
+    for (var i = 0; i < days; i++) {
+      if (isWorkDay(year, month, i + 1)) {
+        workdays++;
+      }
+    }
+    return workdays;
+  }
+
+  const total = getDaysInMonth(month, year);
+  console.log(total);
+
+  document.getElementById("month").innerHTML = `${total}`;
+
+  const weekdays = getWorkDays(month, year);
+  document.getElementById("weekdays").innerHTML = ` ${weekdays}`;
+
+  console.log(weekdays);
+</script>
+<%- include('partials/layout2'); %>

@@ -1,0 +1,36 @@
+<%- include('partials/layout'); %>
+<main class="container" style="display: flex">
+  <div class="main-tableContainer">
+    <h5 class="table-heading">Latest Employee</h5>
+    <table class="main_table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Designation</th>
+          <th>Mobile No.</th>
+          <th>E-mail</th>
+          <th>Joining Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+          <tr>
+            <td>
+            <img src="upload/<%= user.profilephoto %> " alt="" class="row_profileImg" />
+            </td>
+            <td><%= user.firstname %></td>
+            <td><%= user.designation %></td>
+            <td><%= user.mobile %></td>
+            <td><%= user.email %></td>
+            <td><%= moment(user.joining_date).format('DD-MM-YYYY') %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div> 
+  <br>
+  <%- include('calendar') %>
+</main>
+
+<%- include('partials/layout2') %>

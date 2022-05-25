@@ -1,0 +1,73 @@
+<%- include('partials/layout'); %>
+  <main class="container">
+    <div class="main-tableContainer addForm-container">
+      <h5 class="table-heading">Add Project</h5>
+      <form class="addForm" action="/AddProject" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="input-wrapper">
+            <label for="project_name">Project Name:</label>
+            <input type="text" name="project_name" placeholder="Project Name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-wrapper">
+            <label for="client_name">Client Name:</label>
+            <input type="text" name="client_name" id="" />
+          </div>
+          <div class="input-wrapper">
+            <label for="client_email">Client Email:</label>
+            <input type="email" name="client_email" id="" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-wrapper">
+            <label for="start_date">Starting Date:</label>
+            <input type="date" name="start_date" id="" />
+          </div>
+          <div class="input-wrapper">
+            <label for="end_date">Ending Date:</label>
+            <input type="date" name="end_date" id="" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-wrapper">
+            <label for="team_size">Team size:</label>
+            <input type="number" name="team_size" id="" />
+          </div>
+          <div class="input-wrapper">
+            <label for="technology">Technology:</label>
+            <input type="text" name="technology" id="" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-wrapper">
+            <label for="projectMember">Team Member:</label>
+            <input type="text" name="member_1" id="" placeholder="Member1" />
+            <input type="text" name="member_2" id="" placeholder="Member2" />
+            <input type="text" name="member_3" id="" placeholder="Member3" />
+            <input type="text" name="member_4" id="" placeholder="Member4" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-wrapper">
+            <label for="projectDetails">Project Details:</label>
+            <input type="text" name="details" value="" />
+          </div>
+
+        </div>
+        <div class="form-row">
+          <div class="input-wrapper">
+            <label for="project_docs">Project Documents:</label>
+            <input type="file" name="project_docs" id="" />
+          </div>
+        </div>
+        <div class="btn-row">
+          <button type="submit" class="form-btn submitBtn">Submit</button>
+          <a href="/AllProject"><button type="button" class="form-btn cancelBtn">Cancel</button></a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <%- include('partials/layout2'); %>

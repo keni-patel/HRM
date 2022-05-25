@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;600&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.container {
+  margin: 0 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.image-container {
+  position: relative;
+  flex-basis: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+  position: absolute;
+  left: 240px;
+  top: 60px;
+  width: 150px;
+}
+.image-container .table-img {
+  width: 400px;
+  height: 400px;
+}
+.content-container {
+  flex-basis: 40%;
+  margin: 10px 40px;
+  padding: 10px 40px;
+}
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.login-wrapper {
+  display: block;
+  transition: all 3s;
+}
+.login-container h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  line-height: 56px;
+  font-weight: 700;
+  color: #333;
+}
+.login-container .login-container--p {
+  font-family: "Hurricane", cursive;
+  font-size: 28px;
+  font-weight: 500;
+}
+.form-container {
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+}
+.input-container {
+  width: 100%;
+  padding: 10px 10px;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.input-container i {
+  font-size: 18px;
+  margin-right: 5px;
+  color: grey;
+}
+.input-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  background: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+input:focus {
+  background: none;
+}
+.forgot-link {
+  display: block;
+  position: absolute;
+  right: 0;
+  text-decoration: none;
+  color: #0096c7;
+  font-size: 16px;
+}
+.btn {
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 40px;
+  outline: none;
+  border: none;
+  background: #8ebcff;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.5s;
+  cursor: pointer;
+  color: #fff;
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background: #afe2b1;
+}
+.signup-toggle-btn {
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+  background: #a5bcc8;
+  text-decoration: none;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: whitesmoke;
+}
+.toggle-btn {
+  display: block;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.register-wrapper {
+  display: none;
+  transition: display 1s;
+}
+.login__flash-message {
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.success {
+  border: 2px solid green;
+  background-color: rgba(32, 123, 23, 0.6);
+}
+.danger {
+  border: 2px solid red;
+  background-color: rgba(246, 55, 55, 0.6);
+}
+
+.forgot__content-body {
+  padding: 50px;
+  transition: all 0.5s;
+}
+.forgot__content-body:hover{
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+.forgot__content-body h4{
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.forgot__content-body form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.forgot__content-body input {
+  width: 250px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  line-height: 21px;
+  border-radius: 20px;
+  background-color: #e9ecef;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.forgot__btn {
+  font-family: "Poppins", sans-serif;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.forgot__flash-message{
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}

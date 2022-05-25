@@ -1,0 +1,68 @@
+<%- include('partials/layout'); %>
+  <main class="container">
+    <div class="emp-tableContainer">
+      <h5 class="table-heading">
+        Today's Attendance <span id="today"> </span>
+      </h5>
+      <table class="main_table">
+        <thead>
+          <tr>
+            <th>Emp ID</th>
+            <th>Employee Name</th>
+            <th>Check IN</th>
+            <th>Check OUT</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th>Display</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(function(user){ %>
+            <tr>
+              <td>
+                <%= user.attend_emp_id %>
+              </td>
+              <td>
+                <%= user.firstname %>
+              </td>
+              <td>
+                <%= user.time_in %>
+              </td>
+              <td>
+                <%= user.time_out %>
+              </td>
+            
+              <td> <%= user.status %>
+              </td>
+              <td>
+                <div class="action">
+                  <a href="/Editattend/<%= user.id %>" class="btn btn-tbl-edit"><i class="fa-solid fa-pencil"></i></a>
+                  <a href="/deleteattend/<%= user.id %>" class="btn btn-tbl-delete"><i class="fa-solid fa-trash"></i></a>
+               
+                </div>
+              </td>
+              <td>
+                <a href="/empattend/<%= user.attend_emp_id %> " >show all</a>
+              </td>
+              
+            </tr>
+            <% }); %>
+
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+
+  <script>
+    var today = new Date();
+    var day = today.getDay();
+    var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var dateTime = date
+
+    document.getElementById("today").innerHTML = dateTime + ' <br> Day :- ' + daylist[day];
+  </script>
+ 
+
+  <%- include('partials/layout2'); %>

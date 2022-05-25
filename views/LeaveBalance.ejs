@@ -1,0 +1,43 @@
+<%- include('partials/layout') %>
+<!-- -------------------------------- x -- navbar -- x ----------------------------------------- -->
+<main class="container">
+  <div class="emp-tableContainer">
+    <h5 class="table-heading">Leave Balance</h5>
+    <table class="main_table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Emp ID</th>
+          <th>Name</th>
+          <th>Leave Type</th>
+          <th>DOJ</th>
+          <th>Entitled</th>
+          <th>Utilized</th>
+          <th>Balanced</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% employees.forEach(employee => { %>
+        <tr>
+          <td>
+            <img
+              src="upload/<%= employee.profilephoto %> "
+              alt=""
+              class="row_profileImg"
+            />
+          </td>
+          <td><%= employee.id %></td>
+          <td><%= employee.firstname %></td>
+          <td>Annual Leave</td>
+          <td><%= employee.joining_date %></td>
+          <td><%= employee.annual_leave %></td>
+          <td><%= employee.leave_approved %></td>
+          <td><%= employee.leave_balanced %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<%- include('partials/layout2') %>

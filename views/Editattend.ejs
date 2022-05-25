@@ -1,0 +1,44 @@
+<%- include('partials/layout') %> 
+    <!-- -------------------------------- x -- navbar -- x ----------------------------------------- -->
+    <main class="container">
+      <div class="main-tableContainer addForm-container">
+        <h5 class="table-heading">Attendance</h5>
+        <form class="addForm" method="post" action="/Editattend/<%= user.id %>">
+          <div class="form-row">
+            <div class="input-wrapper">
+              <label for="empName">Employee Name:</label>
+              <input type="text" name="firstname" placeholder="firstName" value="<%= user.firstname %>"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="input-wrapper">
+              <label for="empID">Employee ID:</label>
+              <input type="number" name="attend_emp_id" id="" value="<%= user.attend_emp_id %>" />
+            </div>
+            <div class="input-wrapper">
+              <label for="attendance">attendance</label>
+              <select name="status" id="" value="<%= user.status %>">
+                  <option value="Present" >Present</option>
+                  <option value="Absent">Absent</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="input-wrapper">
+              <label for="time-in">time-in:</label>
+              <input type="time" name="time_in" id="" value="<%= user.time_in %>" />
+            </div>
+            <div class="input-wrapper">
+              <label for="time-out">time out:</label>
+              <input type="time" name="time_out" id="" value="<%= user.time_out %>" />
+            </div>
+          </div>
+          <div class="btn-row">
+            <button type="submit" class="form-btn submitBtn">Submit</button>
+            <a href="/todayattend"><button type="button" class="form-btn cancelBtn">Cancel</button></a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+<%- include('partials/layout2') %> 

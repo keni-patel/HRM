@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Himalaya Infotech</title>
+    <link rel="stylesheet" href="/baseStyle.css" />
+    <link rel="stylesheet" href="/pdf.css" />
+    <script
+      src="https://kit.fontawesome.com/a7740e14d6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <sidebar class="sidebar flex__center scroll">
+      <div class="sidebar-logo">
+        <img src="/logo.png" alt="" />
+      </div>
+      <div class="sidebar-profile">
+        <div class="sidebar-profile-photo">
+          <% if (loginUser != "") { %>
+          <img src="/upload/<%= loginUser.profilephoto %> " alt="Profile" />
+          <% }else{ %>
+          <img
+            src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Images.png"
+            alt=""
+          />
+
+          <% } %>
+        </div>
+        <h4><%= loginUser.username %></h4>
+        <p><%= loginUser.role %></p>
+      </div>
+      <ul class="sidebar-menulist">
+        <li class="sidebar-menuItems">
+          <a href="/index" class="sidebar-menuItems-links">
+            <i class="fa-solid fa-desktop"></i>
+            <p>Dashboard</p>
+            <i class="fa-solid fa-plus"></i>
+          </a>
+        </li>
+        <li class="sidebar-menuItems">
+          <a href="#" class="sidebar-menuItems-links">
+            <i class="fa-solid fa-users-line"></i>
+            <p>Employees</p>
+            <i class="fa-solid fa-plus"></i>
+          </a>
+          <ul class="sidebar-submenu">
+            <li><a href="/AllEmployee">All Employees</a></li>
+            <li><a href="/AddEmployee">Add Employees</a></li>
+          </ul>
+        </li>
+        <li class="sidebar-menuItems">
+          <a href="#" class="sidebar-menuItems-links">
+            <i class="fa-solid fa-bars-progress"></i>
+            <p>Project</p>
+            <i class="fa-solid fa-plus"></i>
+          </a>
+          <ul class="sidebar-submenu">
+            <li><a href="/AllProject">All Projects</a></li>
+            <li><a href="/AddProject">Add Project</a></li>
+          </ul>
+        </li>
+        <li class="sidebar-menuItems">
+          <a href="#" class="sidebar-menuItems-links">
+            <i class="fa-solid fa-file"></i>
+            <p>Attendance</p>
+            <i class="fa-solid fa-plus"></i>
+          </a>
+          <ul class="sidebar-submenu">
+            <li><a href="/addattend">Add Attendance</a></li>
+            <li><a href="/todayattend">Today's Attendance</a></li>
+          </ul>
+        </li>
+        <li class="sidebar-menuItems">
+          <a href="#" class="sidebar-menuItems-links">
+            <i class="fa-solid fa-clipboard-list"></i>
+            <p>Leave Management</p>
+            <i class="fa-solid fa-plus"></i>
+          </a>
+          <ul class="sidebar-submenu">
+            <li><a href="/AllLeaveRequest">All Leave Request</a></li>
+            <li><a href="/LeaveBalance">Leave Balance</a></li>
+            <li><a href="/NewLeaveRequest">New Leave Request</a></li>
+          </ul>
+        </li>
+        <li class="sidebar-menuItems">
+          <a href="#" class="sidebar-menuItems-links">
+            <i class="fa-solid fa-building"></i>
+            <p>Department</p>
+            <i class="fa-solid fa-plus"></i>
+          </a>
+          <ul class="sidebar-submenu">
+            <li><a href="/AllDept">All Department</a></li>
+            <li><a href="/AddDept">Add Department</a></li>
+          </ul>
+        </li>
+      </ul>
+    </sidebar>
+
+    <nav class="navbar flex__center">
+      <div class="navbar-leftlink"></div>
+      <div class="navbar-rightlink">
+        <!-- <i class="fa-solid fa-bell"></i> -->
+        <a href="/Profile" title="Profile">
+          <i class="fa-solid fa-user"></i>
+        </a>
+        <a href="/logout" title="Log Out">
+          <i class="fa fa-sign-out"></i>
+        </a>
+      </div>
+    </nav>
+  </body>
+</html>

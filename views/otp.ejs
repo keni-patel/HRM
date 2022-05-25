@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/login.css">
+  </head>
+  <body>
+    <div class="forgot__content-body">
+      <h4>Verification</h4>
+      <% if (otpFlash != "") { %>
+       <h3 class="forgot__flash-message danger"><%= otpFlash %> </h3>
+      <% } %>
+      <form action="/otp" method="post">
+        <input type="number" name="otp" placeholder="Enter OTP." required />
+        <button type="submit" class="forgot__btn">Verify</button>
+      </form>
+    </div>
+  </body>
+</html>

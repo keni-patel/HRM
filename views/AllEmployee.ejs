@@ -1,0 +1,45 @@
+<%- include('partials/layout'); %>
+    <main class="container">
+      <div class="emp-tableContainer">
+        <h5 class="table-heading">All Employees</h5>
+        <table class="main_table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>EmpID</th>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Mobile No.</th>
+              <th>E-mail</th>
+              <th>Address</th>
+              <th>Joining Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach(function(user){ %>
+            <tr>
+              <td>
+              <img src="upload/<%= user.profilephoto %> " alt="" class="row_profileImg" />
+              </td>
+              <td><%= user.id %> </td>
+              <td><%= user.firstname %></td>
+              <td><%= user.designation %></td>
+              <td><%= user.mobile %></td>
+              <td><%= user.email %></td>
+              <td><%= user.address %></td>
+              <td><%= moment(user.joining_date).format('DD-MM-YYYY') %></td>
+              <td>
+                <div class="action">
+                  <a href="/EditEmployee/<%= user.id %>" class="btn btn-tbl-edit"><i class="fa-solid fa-pencil"></i></a>
+                  <a href="deleteEmployee/<%= user.id %>" class="btn btn-tbl-delete"><i class="fa-solid fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>  
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <%- include('partials/layout2'); %>

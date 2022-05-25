@@ -1,0 +1,36 @@
+<%- include('partials/layout'); %>
+<main class="container">
+  <div class="emp-tableContainer">
+    <h5 class="table-heading">All Department</h5>
+    <table class="main_table">
+      <thead>
+        <tr>
+          <th>Department Name</th>
+          <th>Head of the Department</th>
+          <th>Number of projects</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% departments.forEach(function(dept){ %>
+        <tr>
+          <td><%= dept.deptname %></td>
+          <td><%= dept.hod %></td>
+          <td><%= dept.proj %></td>
+
+          <td class="action">
+            <a href="/EditDept/<%= dept.id %>" class="btn btn-tbl-edit"
+              ><i class="fa-solid fa-pencil"></i
+            ></a>
+            <a href="/deleteDept/<%= dept.id %>" class="btn btn-tbl-delete"
+              ><i class="fa-solid fa-trash"></i
+            ></a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<%- include('partials/layout2'); %>

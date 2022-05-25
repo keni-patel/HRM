@@ -1,0 +1,109 @@
+<%- include('partials/layout') %>
+<main class="container">
+  <div class="main-tableContainer addForm-container">
+    <h5 class="table-heading">Profile</h5>
+    <form
+      class="addForm"
+      action="/Profile"
+      enctype="multipart/form-data"
+      method="post"
+    >
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="name">Username:</label>
+          <input
+            type="text"
+            placeholder="UserName"
+            name="username"
+            value="<%= profile.username %>"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            placeholder="FirstName"
+            name="firstname"
+            value="<%= profile.firstname %>"
+          />
+          <input
+            type="text"
+            placeholder="MiddleName"
+            name="middlename"
+            value="<%= profile.middlename %>"
+          />
+          <input
+            type="text"
+            placeholder="LastName"
+            name="lastname"
+            value="<%= profile.lastname %>"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id=""
+            placeholder="E-mail"
+            value="<%= profile.email %> "
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="dob">Joining Date:</label>
+          <input type="date" name="doj" id="" value="<%= profile.doj %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="role">Role:</label>
+          <input
+            type="text"
+            name="role"
+            id=""
+            placeholder="Role"
+            value="<%= profile.role %> "
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="contact">Contact No.:</label>
+          <input
+            type="number"
+            name="contact"
+            id=""
+            value="<%= profile.contact %>"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="address">Address:</label>
+          <input
+            type="text"
+            name="address"
+            id=""
+            value="<%= profile.address %> "
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="profilephoto">Profile Photo:</label>
+          <input type="file" name="profilephoto" id="" value="" />
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="form-btn submitBtn">Submit</button>
+        <a href="/index"
+          ><button type="button" class="form-btn cancelBtn">Cancel</button></a
+        >
+      </div>
+    </form>
+  </div>
+</main>
+<%- include('partials/layout2') %>

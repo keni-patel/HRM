@@ -1,0 +1,55 @@
+<%- include('partials/layout') %>
+<!-- -------------------------------- x -- navbar -- x ----------------------------------------- -->
+<main class="container">
+  <div class="main-tableContainer addForm-container">
+    <h5 class="table-heading">Attendance</h5>
+    <% if (attendFlash != "") { %>
+     <h3 class="attendFlash"><%= attendFlash %> </h3>
+    <% } %>
+    <form class="addForm" method="post" action="/addattend">
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="empName">Employee Name:</label>
+          <select name="firstname">
+            <% employees.forEach(employee => { %>
+            <option value="<%= employee.firstname %>">
+              <%= employee.firstname + " " + employee.lastname%>
+            </option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="empID">Employee ID:</label>
+          <input type="number" name="attend_emp_id" id="" required />
+        </div>
+        <div class="input-wrapper">
+          <label for="attendance">Attendance</label>
+          <select name="status" id="">
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="time-in">Time-in:</label>
+          <input type="time" name="time_in" id="" />
+        </div>
+        <div class="input-wrapper">
+          <label for="time-out">Time out:</label>
+          <input type="time" name="time_out" id="" />
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="form-btn submitBtn">Submit</button>
+        <a href="/todayattend"
+          ><button type="button" class="form-btn cancelBtn">Cancel</button></a
+        >
+      </div>
+    </form>
+  </div>
+</main>
+
+<%- include('partials/layout2') %>

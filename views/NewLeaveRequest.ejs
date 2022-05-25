@@ -1,0 +1,62 @@
+<%- include("partials/layout") %>
+<!-- -------------------------------- x -- navbar -- x ----------------------------------------- -->
+<main class="container">
+  <div class="main-tableContainer addForm-container">
+    <h5 class="table-heading">New Leave Request</h5>
+    <form class="addForm" method="post" action="/NewLeaveRequest">
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="empName">Employee Name:</label>
+          <!-- <input type="text" name="firstname" placeholder="firstName" /> -->
+          <!-- <input type="text" name="lastname" placeholder="lastName" /> -->
+          <select name="firstname">
+            <% employees.forEach(employee => { %>
+            <option value="<%= employee.firstname %>">
+              <%= employee.firstname + " " + employee.lastname%>
+            </option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="empID">Employee ID:</label>
+          <input type="number" name="leave_emp_id" id="" />
+        </div>
+        <div class="input-wrapper">
+          <label for="leaveType">Leave Type:</label>
+          <select name="leavetype" id="">
+            <option value="Casual Leave">Casual Leave</option>
+            <option value="Maternity Leave">Maternity Leave</option>
+            <option value="Sick Leave">Sick Leave</option>
+            <option value="Privilege Leave">Privilege Leave</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="fromDate">From Date:</label>
+          <input type="date" name="fromdate" id="" />
+        </div>
+        <div class="input-wrapper">
+          <label for="toDate">To Date:</label>
+          <input type="date" name="todate" id="" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="remarks">Remarks:</label>
+          <input type="text" name="remarks" value="" />
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="form-btn submitBtn">Submit</button>
+        <a href="/AllLeaveRequest"
+          ><button type="button" class="form-btn cancelBtn">Cancel</button></a
+        >
+      </div>
+    </form>
+  </div>
+</main>
+
+<%- include("partials/layout2") %>

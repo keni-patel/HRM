@@ -1,0 +1,72 @@
+<%- include('partials/layout') %>
+<!-- -------------------------------- x -- navbar -- x ----------------------------------------- -->
+<main class="container">
+  <div class="main-tableContainer addForm-container">
+    <h5 class="table-heading">Edit Leave Request</h5>
+    <form
+      class="addForm"
+      method="post"
+      action="/EditLeaveRequest/<%= leave.id %> "
+    >
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="empName">Employee Name:</label>
+          <input
+            type="text"
+            name="firstname"
+            placeholder="firstName"
+            value="<%= leave.firstname %> "
+          />
+          <input
+            type="text"
+            name="lastname"
+            placeholder="lastName"
+            value="<%= leave.lastname %> "
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="empID">Employee ID:</label>
+          <input type="number" name="empID" id="" value="<%= leave.empID %>" />
+        </div>
+        <div class="input-wrapper">
+          <label for="leaveType">Leave Type:</label>
+          <select name="leavetype" id="" value="<%= leave.leavetype %>">
+            <option value="Casual Leave">Casual Leave</option>
+            <option value="Maternity Leave">Maternity Leave</option>
+            <option value="Sick Leave">Sick Leave</option>
+            <option value="Privilege Leave">Privilege Leave</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="fromDate">From Date:</label>
+          <input
+            type="date"
+            name="fromdate"
+            id=""
+            value="<%= leave.fromdate %>"
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="toDate">To Date:</label>
+          <input type="date" name="todate" id="" value="<%= leave.todate %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="remarks">Remarks:</label>
+          <input type="text" name="remarks" value="<%= leave.remarks %>" />
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="form-btn submitBtn">Submit</button>
+        <a href="/AllLeaveRequest"><button type="button" class="form-btn cancelBtn">Cancel</button></a>
+      </div>
+    </form>
+  </div>
+</main>
+
+<%- include('partials/layout2') %>

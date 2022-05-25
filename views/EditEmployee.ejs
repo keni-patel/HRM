@@ -1,0 +1,177 @@
+<%- include('partials/layout') %>
+<main class="container">
+  <div class="main-tableContainer addForm-container">
+    <h5 class="table-heading">Edit Employee</h5>
+    <form
+      class="addForm"
+      action="/EditEmployee/<%= user.id  %> "
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="form-row">
+        <div class="input-wrapper">
+          <!-- <input type="hidden" value="<%= user.id %>" name="id" /> -->
+          <label for="">Employee Name:</label>
+          <input
+            type="text"
+            placeholder="FirstName"
+            name="firstname"
+            value="<%= user.firstname %>"
+          />
+          <input
+            type="text"
+            placeholder="MiddleName"
+            name="middlename"
+            value="<%= user.middlename %>"
+          />
+          <input
+            type="text"
+            placeholder="LastName"
+            name="lastname"
+            value="<%= user.lastname %>"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="" value="<%= user.email %>" />
+        </div>
+        <div class="input-wrapper">
+          <label for="age">Age:</label>
+          <input type="number" name="age" id="" value="<%= user.age %>" />
+        </div>
+        <div class="input-wrapper">
+          <label for="dob">DOB:</label>
+          <input type="date" name="dob" id="" value="<%= user.dob %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="designation">Designation:</label>
+          <input
+            type="text"
+            name="designation"
+            value="<%= user.designation %>"
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="gender">Gender:</label>
+          <div class="radio-grp">
+            <input type="radio" name="gender" id="male" value= "male" <% if
+            (user.gender == 'male') { %> checked="checked" <% } %>/>
+            <label for="">Male</label>
+          </div>
+          <div class="radio-grp">
+            <input type="radio" name="gender" id="female" value="female" <% if
+            (user.gender == 'female') { %> checked="checked" <% } %> />
+            <label for="">Female</label>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <label for="contact">Mobile No.:</label>
+          <input type="number" name="mobile" id="" value="<%= user.mobile %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="address">Address:</label>
+          <input type="text" name="address" id="" value="<%= user.address %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="joindate">Joining Date:</label>
+          <input
+            type="date"
+            name="joining_date"
+            id=""
+            value="<%= user.joining_date %>"
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="education">Education(Highest Qualification):</label>
+          <input type=" text" name="education" value="<%= user.education %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="bloodgroup">Blood Group:</label>
+          <input type="text" name="bloodgroup" value="<%= user.bloodgroup %>" />
+        </div>
+        <div class="input-wrapper">
+          <label for="experience">Experience:</label>
+          <input type="text" name="experience" value="<%= user.experience %>" />
+        </div>
+        <div class="input-wrapper">
+          <label for="aadharNo">Adhaar No.:</label>
+          <input type="number" name="aadhar_no" value="<%= user.aadhar_no %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="health">Health Complications(if any):</label>
+          <input
+            type="text"
+            name="health_complication"
+            id=""
+            value="<%= user.health_complication %>"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="family">Family Member:</label>
+          <input
+            type="text"
+            id=""
+            placeholder="Name"
+            name="family_member"
+            value="<%= user.family_member %>"
+          />
+          <input
+            type="text"
+            id=""
+            placeholder="Profession"
+            name="profession"
+            value="<%= user.profession %>"
+          />
+          <input
+            type="text"
+            id=""
+            placeholder="Relation"
+            name="relation"
+            value="<%= user.relation %>"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="profilephoto">Profile Photo:</label>
+          <% if (user.profilephoto) { %>
+          <img
+            src="/upload/<%= user.profilephoto %>"
+            alt=""
+            width="50"
+            height="50"
+          />
+          <% } %>
+
+          <input
+            type="file"
+            name="profilephoto"
+            id=""
+            value="<%- user.profilephoto %>"
+          />
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="form-btn submitBtn">Submit</button>
+        <a href="/AllEmployee"><button type="button" class="form-btn cancelBtn">Cancel</button></a>
+
+      </div>
+    </form>
+  </div>
+</main>
+
+<%- include('partials/layout2'); %>

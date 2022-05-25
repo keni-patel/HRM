@@ -1,0 +1,50 @@
+<%- include('partials/layout') %>
+<main class="container">
+  <div class="main-tableContainer addForm-container">
+    <h5 class="table-heading">Add Department</h5>
+    <form class="addForm" action="/AddDept" method="post">
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="deptname">Department Name:</label>
+          <input type="text" name="deptname" placeholder="Department Name" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="hod">Head of the Department:</label>
+          <input
+            type="text"
+            name="hod"
+            id=""
+            placeholder="Head of department"
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-wrapper">
+          <label for="proj">Number of projects done under department:</label>
+          <input type="number" name="proj" id="" placeholder="Projects" />
+        </div>
+        <div class="input-wrapper">
+          <label for="description">Description of Department:</label>
+          <input
+            type="text"
+            name="description"
+            id=""
+            placeholder="Description"
+          />
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button type="submit" class="form-btn submitBtn">Submit</button>
+        <a href="/AllDept"
+          ><button type="button" class="form-btn cancelBtn">Cancel</button></a
+        >
+      </div>
+    </form>
+  </div>
+</main>
+
+<%- include('partials/layout2'); %>

@@ -1,0 +1,667 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,800;0,900;1,100;1,300;1,400;1,500;1,600;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --color-hovertb: #e9ecef;
+  --font-color: #495057;
+  --color-light: #adb5bd;
+  --color-white: #f8f9fa;
+  --color-dark: #212529;
+  --color-lightest: #dee2e6;
+  --color-purewhite: #fff;
+  --color-success: #22bb33;
+  --color-danger: #bb2124;
+
+  --font-poppins: "Poppins", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+}
+.col-orange {
+  color: orange;
+}
+.col-green {
+  color: #4caf50;
+}
+.col-red {
+  color: #f44336;
+}
+.col-yellow {
+  color: #f57d00;
+}
+.col-blue {
+  color: #26b3ef;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  background: var(--color-lightest);
+}
+.flex__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -------------------------------------------- Dashboard CSS --------------------------------------------- */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  flex-direction: column;
+  justify-content: flex-start;
+  top: 0;
+  left: 0;
+  background: var(--color-purewhite);
+  overflow-y: auto;
+}
+.sidebar-logo {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-logo img {
+  width: 150px;
+  height: 80px;
+}
+.sidebar-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+.sidebar-profile-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.sidebar-profile-photo img {
+  width: 100%;
+  border-radius: 50%;
+}
+.sidebar-profile h4 {
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 600;
+  list-style: 30px;
+  font-size: 20px;
+  color: var(--color-dark);
+}
+.sidebar-profile p {
+  font-family: var(--font-poppins);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 8px;
+  color: var(--color-light);
+}
+/* Scroll=bar */
+.scroll::-webkit-scrollbar {
+  width: 2px;
+  border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #cfcece;
+}
+.sidebar-menulist {
+  width: 100%;
+  padding: 0 5px;
+  margin: 1rem 0;
+}
+.sidebar-menuItems {
+  /* padding: 2px 5px; */
+  transition: all 0.3s;
+}
+.sidebar-menuItems a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 5px;
+}
+.sidebar-menuItems a:hover {
+  background: var(--color-lightest);
+}
+.sidebar-menuItems a:focus {
+  outline: none;
+}
+.sidebar-menuItems p {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 30px;
+  color: var(--font-color);
+  margin-left: 10px;
+}
+.sidebar-menuItems i {
+  font-size: 0.8rem;
+  color: var(--font-color);
+}
+.sidebar-submenu {
+  margin-left: 25px;
+  display: none;
+}
+.sidebar-submenu a {
+  font-family: var(--font-poppins);
+  font-weight: 500;
+  font-size: 0.8rem;
+  line-height: 25px;
+  color: var(--font-color);
+}
+.rotate {
+  transform: rotate(-90deg);
+  transition: all 0.5s;
+}
+
+.navbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: calc(100% - 250px);
+  justify-content: space-between;
+  padding: 10px;
+  background: var(--font-color);
+  z-index: 999;
+}
+.navbar i {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-white);
+  transition: all 0.3s;
+}
+.navbar i:hover {
+  color: var(--color-light);
+}
+.navbar .navbar-rightlink i {
+  padding: 0 8px;
+}
+
+/* --------------------container ----------------- */
+
+.container{
+  position: absolute;
+  left: 250px;
+  top: 40px;
+  width: calc(100% - 250px);
+  padding: 10px;
+}
+.main-tableContainer {
+  width: 75%;
+  padding: 10px;
+  background: var(--color-purewhite);
+  border-radius: 10px;
+  overflow: auto;
+}
+.table-heading {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+}
+.main_table {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 6px;
+}
+th {
+  border-bottom: 1px solid black;
+  padding: 10px 20px;
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 27px;
+  color: var(--font-color);
+}
+td {
+  border-bottom: 1px solid #ced4da;
+  padding: 10px 10px;
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 350;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-dark);
+}
+tr {
+  transition: all 0.3s;
+}
+tbody tr:hover {
+  background-color: var(--color-hovertb);
+}
+.main_table .row_profileImg {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  border: 2px solid var(--color-white);
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.116);
+}
+
+/* -------------------------------------------- x - Dashboard CSS - x -------------------------------------------  */
+
+/* --------------------------------------------- All Employee ------------------------------------------------- */
+
+.emp-tableContainer {
+  width: 100%;
+  padding: 10px;
+  background: var(--color-purewhite);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.btn {
+  text-transform: none;
+  font-weight: 600;
+  border-radius: 50% !important;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.1) !important;
+}
+.btn i {
+  font-size: 12px;
+}
+.btn-tbl-edit {
+  background-color: var(--color-success);
+}
+.btn-tbl-edit:hover {
+  background-color: #21972f;
+  transition: all 0.5s;
+}
+.btn-tbl-delete {
+  background-color: var(--color-danger);
+}
+
+/* --------------------------------------- X - Add Employee - X ----------------------------------------- */
+
+/* ------------------------------------- Add Project ------------------------------------------------- */
+.badge {
+  display: inline-block;
+  border: 1px solid;
+  padding: 4px 7px;
+  border-radius: 4px;
+  line-height: 10px;
+  font-weight: 400;
+}
+
+.project-avatar {
+  width: 24px;
+  border-radius: 50%;
+  border: 1px solid white;
+  display: inline-block;
+  margin-left: -15px;
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.116);
+  vertical-align: center;
+}
+.project-avatar img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.additional-badge {
+  border-color: grey;
+  border-radius: 5px;
+  box-shadow: none;
+}
+.project-avatar span {
+  line-height: 20px;
+  font-weight: 300;
+}
+
+/* -------------------------------------------- X - Add Project -X --------------------------------------- */
+
+.table-heading span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-light);
+  margin-left: 10px;
+}
+
+.addForm-container {
+  width: 100%;
+}
+.addForm {
+  width: 100%;
+  padding-right: 20px;
+  margin-top: 40px;
+}
+.addForm .form-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-row .input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+.input-wrapper input {
+  flex: 1;
+  margin-left: 10px;
+  list-style: 27px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #b08d8d;
+  text-align: center;
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 27px;
+}
+.input-wrapper input:focus {
+  border-bottom: 1px solid black;
+}
+.input-wrapper label {
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 27px;
+  margin-right: 5px;
+  color: var(--color-dark);
+}
+
+.radio-grp {
+  flex: 1;
+  text-align: center;
+}
+.radio-grp label {
+  color: var(--font-color);
+}
+.btn-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.form-btn {
+  width: 90px;
+  height: 35px;
+  padding: 5px 18px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+.submitBtn {
+  background: #342b2b;
+  color: var(--color-purewhite);
+}
+.cancelBtn {
+  background: #ef0303;
+  color: var(--color-purewhite);
+}
+.input-wrapper select {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #b08d8d;
+  text-align: center;
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+/* ------------------------------------------ Employee Attendance Page ------------------------------- */
+.attend-option-container {
+  width: 100%;
+  background: var(--color-purewhite);
+  margin-bottom: 20px;
+  min-height: 50px;
+  border-radius: 10px;
+  padding: 20px 10px;
+}
+.p-l-20 {
+  padding-left: 20px;
+}
+.attend-option-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 0;
+}
+.nav-item a {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  color: #655858;
+  padding: 5px 10px;
+}
+.tab-all a.active {
+  background: #e31bab;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  color: var(--color-purewhite);
+  transition: color 0.1s cubic-bezier(0.79, 0.33, 0, 0.01),
+    background-color 0.1s cubic-bezier(0.79, 0.33, 0, 0.01);
+}
+
+.profile-container {
+  width: 100%;
+  background: var(--color-purewhite);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 20px 20px;
+}
+.attend-profile-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 20px 10px; */
+}
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.profile-image img {
+  width: 100%;
+  border-radius: 50%;
+}
+.profile-details {
+  flex: 1;
+  margin-left: 15px;
+}
+.profile-details-light {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 16px;
+  color: #877979;
+}
+.profile-details-bold {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: black;
+}
+.attendance-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px 0 40px 0;
+}
+.attendance-time div {
+  text-align: center;
+}
+.attendance-details-bold {
+  font-family: var(--font-poppins);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  color: #1b7e0b;
+}
+.attendance-details-light {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #887070;
+}
+.hide {
+  display: none;
+}
+
+#reqStatus {
+  outline: none;
+  border: 1.5px solid var(--font-color);
+  border-radius: 4px;
+  font-family: var(--color-lightest);
+  color: var(--color-dark);
+  font-weight: 300;
+}
+
+
+
+/*----------------------------------------- Attendance Report----------------------------------------- */
+.report-container{
+  background-color: var(--color-purewhite);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.header-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-left: 40px solid gray;
+}
+
+.logo-section{
+  flex: 65%;
+  margin-left: 10px;
+}
+
+.address-section{
+  flex: 35%;
+  padding-left: 20px;
+  border-left: 4px solid rgb(230, 129, 92);
+}
+.report__header-section-address{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+.report__header-section-address > i{
+  color: var(--font-color);
+}
+.report__header-section-address > p{
+  font-size: 0.8rem;
+  font-family: var(--font-poppins);
+  font-weight: 300;
+}
+#printDate{
+  font-size: 1rem;
+  font-family: var(--font-roboto);
+  font-weight: 400;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.report__personalDetails{
+  margin: 10px 0;
+}
+
+.report__personalDetails > h2{
+  font-size: 1.2rem;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  line-height: 21px;
+  margin-bottom: 5px;
+}
+
+.report__personalDetails p{
+  font-family: var(--font-poppins);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 21px;
+}
+.report__body{
+  margin-top: 20px;
+}
+
+.report__body  p{
+  font-family: var(--font-poppins);
+}
+
+.report__body-section{
+  margin-left: 50px;
+  font-weight: 300;
+}
+
+.report__body-section span{
+  font-weight: 400;
+}
+
+.regards{
+  margin-top: 50px;
+}
+
+.printBtn{
+  font-size: 1rem;
+  font-family: var(--font-roboto);
+  padding: 5px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-lightest);
+  color: var(--color-dark);
+  margin:10px auto;
+}
+.attendFlash{
+  margin: 10px 0;
+  padding: 5px;
+  
+  font-family: var(--font-poppins);
+  color: white;
+  font-weight: 400;
+  border: 1px solid rgb(33, 179, 33);
+  background-color: rgba(44, 136, 4, 0.5);
+}

@@ -1,0 +1,15 @@
+@media print {
+
+  body{
+    background-color: white;
+  }
+  .sidebar, .navbar, .attend-option-container,.profile-container, .report-container > button{
+      display: none;
+  }
+  .container{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+  }
+}
